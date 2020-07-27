@@ -1,0 +1,56 @@
+{
+  "schemaVersion": "1.0.0",
+  "info": {
+    "title": "Microsoft Defender Technical Add-On",
+    "id": {
+      "group": null,
+      "name": "TA-nextpart-defender",
+      "version": "0.0.0"
+    },
+    "author": [
+      {
+        "name": "Nextpart Security IntelligenceGmbH",
+        "email": null,
+        "company": null
+      }
+    ],
+    "releaseDate": null,
+    "description": "This addon takes care that the windows event log entries of defender parsed and converted correctly to the CIM format. Mainly XML formats are supported, but some raw formats work as well.",
+    "classification": {
+      "intendedAudience": null,
+      "categories": [],
+      "developmentStatus": null
+    },
+    "commonInformationModels": null,
+    "license": {
+      "name": null,
+      "text": null,
+      "uri": null
+    },
+    "privacyPolicy": {
+      "name": null,
+      "text": null,
+      "uri": null
+    },
+    "releaseNotes": {
+      "name": null,
+      "text": null,
+      "uri": null
+    }
+  },
+  "dependencies": {
+    "Splunk_TA_windows": {
+      "version": ">=7.0.0"
+    }
+  },
+  "tasks": [],
+  "inputGroups": {
+  },
+  "incompatibleApps": {
+  },
+  "platformRequirements": {
+    "splunk": {
+      "Enterprise": "*"
+    }
+  }
+}
