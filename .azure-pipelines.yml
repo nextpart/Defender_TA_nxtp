@@ -1,0 +1,3 @@
+# Author: Michael Bischof <michael@nextpart.io>
+# Organisation: Nextpart Security Intelligence GmbH
+name: $(Date:yyyyMMdd)$(Rev:.r)
