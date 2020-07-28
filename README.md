@@ -1,11 +1,11 @@
 
-# Technical Add-On for Windows Defender 
+# Technical Add-On for Windows Defender
 
-This extension for Splunk® is a rewrite of the Add-on already created by [pdoconnell](https://github.com/pdoconnell) ([TA-windows-defender](https://github.com/pdoconnell/TA-microsoft-windefender)) that we adapt to our needs and requirements. 
+This extension for Splunk® is a rewrite of the Add-on already created by [pdoconnell](https://github.com/pdoconnell) ([TA-windows-defender](https://github.com/pdoconnell/TA-microsoft-windefender)) that we adapt to our needs and requirements.
 At this point we would like to thank Patrick for the great work he has done with his project and from which we could learn a lot as well as all the other members of the [Splunk Community](https://community.splunk.com/t5/Community/ct-p/en-us) who publish their work. You are heroes :clap:
 
 
-## Author information       
+## Author information
 
 - Original Author: Nextpart Security Intelligence GmbH
 - Version: ``0.0.0``

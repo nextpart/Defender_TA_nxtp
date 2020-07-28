@@ -1,0 +1,4 @@
+<nav color="#3c6188">
+    <view name="search" default='true' />
+    <view name="datasets" />
+</nav>

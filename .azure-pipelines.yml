@@ -1,3 +1,19 @@
 # Author: Michael Bischof <michael@nextpart.io>
 # Organisation: Nextpart Security Intelligence GmbH
 name: $(Date:yyyyMMdd)$(Rev:.r)
+
+
+
+trigger:
+  branches:
+    include:
+    - master
+    - topic-pipeline
+
+
+
+pool: Default
+
+stages:
+- stage: Build_Master_Version_Number
+  displayName: Build_Branch_Version_Number
