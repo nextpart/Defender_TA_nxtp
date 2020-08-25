@@ -1,5 +1,5 @@
-#
-#
+# These are some default pre-commit hooks recommended for splunk packages.
+# run ``pre-commit install`` & then ``pre-commit run --all-files`` to check.
 
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks

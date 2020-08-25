@@ -1,0 +1,9 @@
+id,Action,action
+1,Clean,deleted
+2,Quarantine,blocked
+3,Remove,deleted
+4,Allow,allowed
+5,User defined,other
+6,No action,allowed
+7,Block,blocked
+9,No action,deferred

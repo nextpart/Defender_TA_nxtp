@@ -2,20 +2,22 @@
 # Organisation: Nextpart Security Intelligence GmbH
 name: $(Date:yyyyMMdd)$(Rev:.r)
 
+pool: Native
+
 variables:
-- group: docker
-- name: APP_DIR
+- group: docker # Variables in Pipelines/Library
+- name: APP_DIR # Used by packaging image to locate apps
   value: $(Pipeline.Workspace)/s/apps
-- name: PKG_DIR
+- name: PKG_DIR # Used by packaging image to store results
   value: $(Build.ArtifactStagingDirectory)/package
-- name: feed
+- name: feed # Used for uploading artifacts to azure
   value: 'bdf79b24-157f-463f-960f-825f04ff0f9c/b992132d-b93a-4ad6-a5e2-cca3afd731a2'
-- name: appname-feed
-  value: 'app-nextpart-defender'
-- name: major
+- name: appname-feed # Azure artifacts only accepts lower-case # TODO: find workaround
+  value: 'ta-nextpart-defender'
+- name: major # Package versioning stuff ...
   value: 0
 - name: minor
-  value: 0
+  value: 2
 
 trigger:
   branches:
@@ -23,10 +25,8 @@ trigger:
     - master
     - topic-pipeline
 
-pool: Default
-
 stages:
-
+# Determine version number for dynamic semantic versioning of package
 - stage:
   displayName: Build_Master_Version_Number
   condition: eq(variables['Build.SourceBranch'], 'refs/heads/master')
@@ -38,8 +38,6 @@ stages:
       - bash: |
           echo "##vso[build.updatebuildnumber]$(major).$(minor).$(patch)"
         name: SetMasterBuildName
-# Versioning feature branch and PR builds
-
 - stage:
   displayName: Build_Branch_Version_Number
   condition: ne(variables['Build.SourceBranch'], 'refs/heads/master')
@@ -57,15 +55,14 @@ stages:
           echo "##vso[build.updatebuildnumber]$(major).$(minor).$(brpatch)-$(Build.SourceBranchName)"
         condition: ne(variables['Build.Reason'], 'PullRequest')
         name: SetBranchBuildName
-
+# As we have the version we can now prepare, test, package and then upload the app
 - stage: Build
   condition: always()
   displayName: Build_Steps
   jobs:
 
   - job: Packing
-    pool: Default
-    container:
+    container: # Using a dedicated service image to take over jobs
       image: $(azureContainerRegistry)/splunk/package:latest
       endpoint: nextpartdev
     steps:
@@ -74,25 +71,27 @@ stages:
           sudo mkdir -p $(PKG_DIR)
           sudo mkdir -p $(PKG_DIR)/$(Build.Repository.Name)
           sudo chown -R $(whoami). $(PKG_DIR)
-        displayName: 'Create dir'
+        displayName: 'Preparing directories applications and packages.'
         workingDirectory: $(Build.SourcesDirectory)
       - checkout: self
-        fetchDepth: 1
         path: s/apps/$(Build.Repository.Name)
+        displayName: 'Checkout repository to applications path.'
+      - script: |
+          version=$(Build.BuildNumber)
+          version="${version%%-*}"
+          sed -i "s/version = 0.0.0/version = ${version}/g" default/app.conf
+          sed -i "s/X.X.X/${version}/g" README.md
+          sed -i "s/\"version\": \"0.0.0\"/\"version\": \"${version}\"/g" app.manifest
+        workingDirectory: $(APP_DIR)/$(Build.Repository.Name)
+        displayName: 'Update package version to current build number.'
       - script: |
           package
-        displayName: 'Run AppInspect & packaging'
-      - script: |
-          ls
-          pwd
-          ls $(Build.Repository.Name)
-        displayName: 'Where am I'
-        workingDirectory: $(PKG_DIR)
+        displayName: 'Validate metadata, run appinspect tests and package source.'
       - task: PublishTestResults@2
         condition: succeededOrFailed()
         inputs:
           testResultsFiles: '**/*_appinspect.xml'
-          testRunTitle: 'Test results for package $(Build.Repository.Name).'
+          testRunTitle: 'Test results for package $(Build.Repository.Name) in version $(Build.BuildNumber).'
           searchFolder: $(PKG_DIR)
       - task: UniversalPackages@0
         inputs:
@@ -104,8 +103,3 @@ stages:
           versionOption: 'custom'
           versionPublish: $(Build.BuildNumber)
         displayName: 'Publish to Feed Artifacts'
-      # - task: PublishPipelineArtifact@1
-      #   inputs:
-      #     targetPath: $(PKG_DIR)
-      #     artifactName: $(Build.Repository.Name)
-      #   displayName: 'Publish to Pipeline Artifacts'

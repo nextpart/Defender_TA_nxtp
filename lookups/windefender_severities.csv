@@ -1,0 +1,7 @@
+Severity,severity_id,severity
+Severe,4,critical
+High,3,high
+Moderate,2,medium
+Medium,2,medium
+Low,1,low
+Information,0,informational
