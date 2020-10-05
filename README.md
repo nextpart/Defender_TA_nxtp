@@ -37,7 +37,7 @@ $SPLUNK_HOME/bin/splunk install app TA-nextpart-defender_<version>.tgz
 
 Once you have installed the Technical Add-On you can start sending data. In order to do so you need Windows instances running [Windows Defender AntiVirus](https://docs.microsoft.com/en-gb/windows/security/threat-protection/microsoft-defender-antivirus/microsoft-defender-antivirus-in-windows-10) and the [Splunk Universal Forwarder](https://www.splunk.com/en_us/download/universal-forwarder.html) with the according configuration for you environment. Then you can also use this add-on on your endpoints and activate forwarding by adding the following content to the ``inputs.conf`` file in the ``local`` directory:
 
-```toml
+```
 # Custom Inputs.conf for microsoft windows defender events
 
 [WinEventLog://Microsoft-Windows-Windows Defender/Operational]
@@ -45,7 +45,12 @@ disabled = false
 blacklist = 1001, 1150, 2011, 2000, 2001, 2002, 2010
 ```
 
+
+
 ## Update History
+
+* ``0.3.X`` October 05, 2020: 
+    Detection results will be extracted with multiple fields if more details are provided and the source has been adapted for general use outside the dev environment and should work well for general usage.
 
 * ``0.2.X`` August 25, 2020:
     First possible field extractions according to the CIM event types malware and IDS alerts with documentation of these.
