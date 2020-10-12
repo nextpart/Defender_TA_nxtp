@@ -29,7 +29,7 @@
 "1128","Audited Controlled folder access sector write block event.","operational",,"success",
 "1151","If your antimalware platform reports status to a monitoring platform; this event indicates that the antimalware platform is running and in a healthy state.","operational",,"success",
 "1150","If your antimalware platform reports status to a monitoring platform; this event indicates that the antimalware platform is running and in a healthy state.","operational",,"success",
-"1160","The antimalware engine found an potentially unwanted application.","detection",,"success",
+"1160","The antimalware engine found an potentially unwanted application.","detection",,"success",Threat Detection
 "2000","The antimalware definitions updated successfully.","update",,"success",
 "2001","The antimalware definition update failed.","update",,"failure",
 "2002","The antimalware engine updated successfully.","update",,"success",
