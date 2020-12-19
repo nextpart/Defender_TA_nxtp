@@ -21,9 +21,7 @@ variables:
 
 trigger:
   branches:
-    include:
-    - master
-    - topic-pipeline
+    include: [ "*" ]
 
 stages:
 # Determine version number for dynamic semantic versioning of package
