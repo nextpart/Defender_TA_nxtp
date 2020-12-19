@@ -27,7 +27,7 @@
 "1125","Event when Network protection fires in Audit-mode.","detection",,"success",Network Protection
 "1126","Event when Network protection fires in Block-mode.","detection",,"success",Network Protection
 "1128","Audited Controlled folder access sector write block event.","operational",,"success",
-"1151","If your antimalware platform reports status to a monitoring platform; this event indicates that the antimalware platform is running and in a healthy state.","operational",,"success",
+"1151","Endpoint Protection client health report (time in UTC)","operational",,"success",
 "1150","If your antimalware platform reports status to a monitoring platform; this event indicates that the antimalware platform is running and in a healthy state.","operational",,"success",
 "1160","The antimalware engine found an potentially unwanted application.","detection",,"success",Threat Detection
 "2000","The antimalware definitions updated successfully.","update",,"success",
