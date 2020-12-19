@@ -1,72 +1,28 @@
-<<<<<<< Updated upstream
-"signature_id","signature","CategoryString","action","result", "subsystem"
-"1000","An antimalware scan started.","operational",,"success",
-"1001","An antimalware scan finished.","operational",,"success",
-"1002","An antimalware scan was stopped before it finished.","operational",,"failure",
-"1003","An antimalware scan was paused.","operational",,"success",
-"1004","An antimalware scan was resumed.","operational",,"success",
-"1005","An antimalware scan failed.","operational",,"failure",
-"1006","The antimalware engine found malware or other potentially unwanted software.","detection",,"success",Threat Detection
-"1007","The antimalware platform performed an action to protect your system from malware or other potentially unwanted software.","action",,"success",
-"1008","The antimalware platform attempted to perform an action to protect your system from malware or other potentially unwanted software; but the action failed.","action",,"success",
-"1009","The antimalware platform restored an item from quarantine.","quarantine",,"success",
-"1010","The antimalware platform could not restore an item from quarantine.","quarantine",,"failure",
-"1011","The antimalware platform deleted an item from quarantine.","quarantine",,"success",
-"1012","The antimalware platform could not delete an item from quarantine.","quarantine",,"failure",
-"1013","The antimalware platform deleted history of malware and other potentially unwanted software.","history",,"success",
-"1014","The antimalware platform could not delete history of malware and other potentially unwanted software.","history",,"failure",
-"1015","The antimalware platform detected suspicious behavior.","detection",,"success",Threat Detection
-"1116","The antimalware platform detected malware or other potentially unwanted software.","detection",,"success",Threat Detection
-"1117","The antimalware platform performed an action to protect your system from malware or other potentially unwanted software.","action",,"success",
-"1118","The antimalware platform attempted to perform an action to protect your system from malware or other potentially unwanted software; but the action failed.","action",,"failure",
-"1119","The antimalware platform encountered a critical error when trying to take action on malware or other potentially unwanted software. There are more details in the event message.","action",,"failure",
-"1120","Windows Defender has deduced the hashes for a threat resource.","detection",,"success",
-"1121","Event when rule fires in Block-mode.","action",,"success",
-"1122","Event when rule fires in Audit-mode.","detection",,"success",
-"1123","Blocked Controlled folder access event.","detection",,"success",Controlled Folder Access
-"1124","Audited Controlled folder access event.","operational",,"success",Controlled Folder Access
-"1125","Event when Network protection fires in Audit-mode.","detection",,"success",Network Protection
-"1126","Event when Network protection fires in Block-mode.","detection",,"success",Network Protection
-"1128","Audited Controlled folder access sector write block event.","operational",,"success",
-"1151","Endpoint Protection client health report (time in UTC)","operational",,"success",
-"1150","If your antimalware platform reports status to a monitoring platform; this event indicates that the antimalware platform is running and in a healthy state.","operational",,"success",
-"1160","The antimalware engine found an potentially unwanted application.","detection",,"success",Threat Detection
-"2000","The antimalware definitions updated successfully.","update",,"success",
-"2001","The antimalware definition update failed.","update",,"failure",
-"2002","The antimalware engine updated successfully.","update",,"success",
-"2003","The antimalware engine update failed.","update",,"failure",
-"2004","There was a problem loading antimalware definitions. The antimalware engine will attempt to load the last-known good set of definitions.","update",,"failure",
-"2005","The antimalware engine failed to load because the antimalware platform is out of date. The antimalware platform will load the last-known good antimalware engine and attempt to update.","update",,"failure",
-"2006","The platform update failed.","update",,"failure",
-"2007","The platform will soon be out of date. Download the latest platform to maintain up-to-date protection.","update",,"success",
-"2010","The antimalware engine used the Dynamic Signature Service to get additional definitions.","update",,"success",
-"2011","The Dynamic Signature Service deleted the out-of-date dynamic definitions.","update",,"success",
-"2012","The antimalware engine encountered an error when trying to use the Dynamic Signature Service.","operational",,"failure",
-"2013","The Dynamic Signature Service deleted all dynamic definitions.","operational",,"success",
-"2020","The antimalware engine downloaded a clean file.","update","allow","success",
-"2021","The antimalware engine failed to download a clean file.","update",,"failure",
-"2030","The antimalware engine was downloaded and is configured to run offline on the next system restart.","operational",,"success",
-"2031","The antimalware engine was unable to download and configure an offline scan.","operational",,"success",
-"2040","Antimalware support for this operating system version will soon end.","update",,"success",
-"2041","Antimalware support for this operating system has ended. You must upgrade the operating system for continued support.","update",,"failure",
-"2042","The antimalware engine no longer supports this operating system; and is no longer protecting your system from malware.","update",,"failure",
-"2050",,,,,
-"2051",,,,,
-"3002","Real-time protection encountered an error and failed.","realtime",,"failure",
-"3007","Real-time protection recovered from a failure. We recommend running a full system scan when you see this error.","realtime",,"success",
-"5000","Real-time protection is enabled.","realtime",,"success",
-"5001","Real-time protection is disabled.","realtime",,"success",
-"5004","The real-time protection configuration changed.","operational",,"success",
-"5007","The antimalware platform configuration changed.","operational",,"success",
-"5008","The antimalware engine encountered an error and failed.","operational",,"failure",
-"5009","Scanning for malware and other potentially unwanted software is enabled.","operational",,"success",
-"5010","Scanning for malware and other potentially unwanted software is disabled.","operational",,"success",
-"5011","Scanning for viruses is enabled.","operational",,"success",
-"5012","Scanning for viruses is disabled.","operational",,"success",
-"5100","The antimalware platform will expire soon.","operational",,"success",
-"5101","The antimalware platform is expired.","operational",,"failure",
-=======
 "signature_id","symbolic","signature","CategoryString","action","result", "subsystem"
+"1",,"ACG audit","operational",,,"Exploit Protection"
+"2",,"ACG enforce","operational",,,"Exploit Protection"
+"3",,"Do not allow child processes audit","operational",,,"Exploit Protection"
+"4",,"Do not allow child processes block","operational",,,"Exploit Protection"
+"5",,"Block low integrity images audit","operational",,,"Exploit Protection"
+"6",,"Block low integrity images block","operational",,,"Exploit Protection"
+"7",,"Block remote images audit","operational",,,"Exploit Protection"
+"8",,"Block remote images block","operational",,,"Exploit Protection"
+"9",,"Disable win32k system calls audit","operational",,,"Exploit Protection"
+"10",,"Disable win32k system calls block","operational",,,"Exploit Protection"
+"11",,"Code integrity guard audit","operational",,,"Exploit Protection"
+"12",,"Code integrity guard block","operational",,,"Exploit Protection"
+"13",,"EAF audit","operational",,,"Exploit Protection"
+"14",,"EAF enforce","operational",,,"Exploit Protection"
+"15",,"EAF+ audit","operational",,,"Exploit Protection"
+"16",,"EAF+ enforce","operational",,,"Exploit Protection"
+"17",,"IAF audit","operational",,,"Exploit Protection"
+"18",,"IAF enforce","operational",,,"Exploit Protection"
+"19",,"ROP StackPivot audit","operational",,,"Exploit Protection"
+"20",,"ROP StackPivot enforce","operational",,,"Exploit Protection"
+"21",,"ROP CallerCheck audit","operational",,,"Exploit Protection"
+"22",,"ROP CallerCheck enforce","operational",,,"Exploit Protection"
+"23",,"ROP SimExec audit","operational",,,"Exploit Protection"
+"24",,"ROP SimExec enforce","operational",,,"Exploit Protection"
 "1000",MALWAREPROTECTION_SCAN_STARTED,"An antimalware scan started.","operational",,"success",
 "1001",MALWAREPROTECTION_SCAN_COMPLETED,"An antimalware scan finished.","operational",,"success",
 "1002",MALWAREPROTECTION_SCAN_CANCELLED,"An antimalware scan was stopped before it finished.","operational",,"failure",
@@ -88,49 +44,48 @@
 "1118",MALWAREPROTECTION_STATE_MALWARE_ACTION_FAILED,"The antimalware platform attempted to perform an action to protect your system from malware or other potentially unwanted software; but the action failed.","action",,"failure",
 "1119",MALWAREPROTECTION_STATE_MALWARE_ACTION_CRITICALLY_FAILED,"The antimalware platform encountered a critical error when trying to take action on malware or other potentially unwanted software. There are more details in the event message.","action",,"failure",
 "1120",MALWAREPROTECTION_THREAT_HASH,"Windows Defender has deduced the hashes for a threat resource.","detection",,"success",
-"1121",,"Event when rule fires in Block-mode.","action",,"success",
-"1122",,"Event when rule fires in Audit-mode.","detection",,"success",
+"1121",,"Event when an attack surface reduction rule fires in block mode.","action",,"success",
+"1122",,"Event when an attack surface reduction rule fires in audit mode.","detection",,"success",
 "1123",,"Blocked Controlled folder access event.","detection",,"success","Controlled Folder Access"
 "1124",,"Audited Controlled folder access event.","operational",,"success","Controlled Folder Access"
 "1125",,"Event when Network protection fires in Audit-mode.","detection",,"success","Network Protection"
 "1126",,"Event when Network protection fires in Block-mode.","detection",,"success","Network Protection"
 "1128",,"Audited Controlled folder access sector write block event.","operational",,"success",
-"1150",,"If your antimalware platform reports status to a monitoring platform; this event indicates that the antimalware platform is running and in a healthy state.","operational",,"success",
-"1151",,"If your antimalware platform reports status to a monitoring platform; this event indicates that the antimalware platform is running and in a healthy state.","operational",,"success",
+"1150",MALWAREPROTECTION_SERVICE_HEALTHY,"If your antimalware platform reports status to a monitoring platform; this event indicates that the antimalware platform is running and in a healthy state.","operational",,"success",
+"1151",MALWAREPROTECTION_SERVICE_HEALTH_REPORT,"Endpoint Protection client health report (time in UTC)","operational",,"success",
 "1160",,"The antimalware engine found an potentially unwanted application.","detection",,"success","Threat Detection"
-"2000",,"The antimalware definitions updated successfully.","update",,"success",
-"2001",,"The antimalware definition update failed.","update",,"failure",
-"2002",,"The antimalware engine updated successfully.","update",,"success",
-"2003",,"The antimalware engine update failed.","update",,"failure",
-"2004",,"There was a problem loading antimalware definitions. The antimalware engine will attempt to load the last-known good set of definitions.","update",,"failure",
-"2005",,"The antimalware engine failed to load because the antimalware platform is out of date. The antimalware platform will load the last-known good antimalware engine and attempt to update.","update",,"failure",
-"2006",,"The platform update failed.","update",,"failure",
-"2007",,"The platform will soon be out of date. Download the latest platform to maintain up-to-date protection.","update",,"success",
-"2010",,"The antimalware engine used the Dynamic Signature Service to get additional definitions.","update",,"success",
-"2011",,"The Dynamic Signature Service deleted the out-of-date dynamic definitions.","update",,"success",
-"2012",,"The antimalware engine encountered an error when trying to use the Dynamic Signature Service.","operational",,"failure",
-"2013",,"The Dynamic Signature Service deleted all dynamic definitions.","operational",,"success",
-"2020",,"The antimalware engine downloaded a clean file.","update","allow","success",
-"2021",,"The antimalware engine failed to download a clean file.","update",,"failure",
-"2030",,"The antimalware engine was downloaded and is configured to run offline on the next system restart.","operational",,"success",
-"2031",,"The antimalware engine was unable to download and configure an offline scan.","operational",,"success",
-"2040",,"Antimalware support for this operating system version will soon end.","update",,"success",
-"2041",,"Antimalware support for this operating system has ended. You must upgrade the operating system for continued support.","update",,"failure",
-"2042",,"The antimalware engine no longer supports this operating system; and is no longer protecting your system from malware.","update",,"failure",
+"2000",MALWAREPROTECTION_SIGNATURE_UPDATED,"The antimalware definitions updated successfully.","update",,"success",
+"2001",MALWAREPROTECTION_SIGNATURE_UPDATE_FAILED,"The antimalware definition update failed.","update",,"failure",
+"2002",MALWAREPROTECTION_ENGINE_UPDATED,"The antimalware engine updated successfully.","update",,"success",
+"2003",MALWAREPROTECTION_ENGINE_UPDATE_FAILED,"The antimalware engine update failed.","update",,"failure",
+"2004",MALWAREPROTECTION_SIGNATURE_REVERSION,"There was a problem loading antimalware definitions. The antimalware engine will attempt to load the last-known good set of definitions.","update",,"failure",
+"2005",MALWAREPROTECTION_ENGINE_UPDATE_PLATFORMOUTOFDATE,"The antimalware engine failed to load because the antimalware platform is out of date. The antimalware platform will load the last-known good antimalware engine and attempt to update.","update",,"failure",
+"2006",MALWAREPROTECTION_PLATFORM_UPDATE_FAILED,"The platform update failed.","update",,"failure",
+"2007",MALWAREPROTECTION_PLATFORM_ALMOSTOUTOFDATE,"The platform will soon be out of date. Download the latest platform to maintain up-to-date protection.","update",,"success",
+"2010",MALWAREPROTECTION_SIGNATURE_FASTPATH_UPDATED,"The antimalware engine used the Dynamic Signature Service to get additional definitions.","update",,"success",
+"2011",MALWAREPROTECTION_SIGNATURE_FASTPATH_DELETED,"The Dynamic Signature Service deleted the out-of-date dynamic definitions.","update",,"success",
+"2012",MALWAREPROTECTION_SIGNATURE_FASTPATH_UPDATE_FAILED,"The antimalware engine encountered an error when trying to use the Dynamic Signature Service.","operational",,"failure",
+"2013",MALWAREPROTECTION_SIGNATURE_FASTPATH_DELETED_ALL,"The Dynamic Signature Service deleted all dynamic definitions.","operational",,"success",
+"2020",MALWAREPROTECTION_CLOUD_CLEAN_RESTORE_FILE_DOWNLOADED,"The antimalware engine downloaded a clean file.","update","allow","success",
+"2021",MALWAREPROTECTION_CLOUD_CLEAN_RESTORE_FILE_DOWNLOAD_FAILED,"The antimalware engine failed to download a clean file.","update",,"failure",
+"2030",MALWAREPROTECTION_OFFLINE_SCAN_INSTALLED,"The antimalware engine was downloaded and is configured to run offline on the next system restart.","operational",,"success",
+"2031",MALWAREPROTECTION_OFFLINE_SCAN_INSTALL_FAILED,"The antimalware engine was unable to download and configure an offline scan.","operational",,"success",
+"2040",MALWAREPROTECTION_OS_EXPIRING,"Antimalware support for this operating system version will soon end.","update",,"success",
+"2041",MALWAREPROTECTION_OS_EOL,"Antimalware support for this operating system has ended. You must upgrade the operating system for continued support.","update",,"failure",
+"2042",MALWAREPROTECTION_PROTECTION_EOL,"The antimalware engine no longer supports this operating system; and is no longer protecting your system from malware.","update",,"failure",
 "2050",,,,,,
 "2051",,,,,,
-"3002",,"Real-time protection encountered an error and failed.","realtime",,"failure",
-"3007",,"Real-time protection recovered from a failure. We recommend running a full system scan when you see this error.","realtime",,"success",
-"5000",,"Real-time protection is enabled.","realtime",,"success",
-"5001",,"Real-time protection is disabled.","realtime",,"success",
-"5004",,"The real-time protection configuration changed.","operational",,"success",
-"5007",,"The antimalware platform configuration changed.","operational",,"success",
-"5008",,"The antimalware engine encountered an error and failed.","operational",,"failure",
-"5009",,"Scanning for malware and other potentially unwanted software is enabled.","operational",,"success",
-"5010",,"Scanning for malware and other potentially unwanted software is disabled.","operational",,"success",
-"5011",,"Scanning for viruses is enabled.","operational",,"success",
-"5012",,"Scanning for viruses is disabled.","operational",,"success",
+"3002",MALWAREPROTECTION_RTP_FEATURE_FAILURE,"Real-time protection encountered an error and failed.","realtime",,"failure",
+"3007",MALWAREPROTECTION_RTP_FEATURE_RECOVERED,"Real-time protection recovered from a failure. We recommend running a full system scan when you see this error.","realtime",,"success",
+"5000",MALWAREPROTECTION_RTP_ENABLED,"Real-time protection is enabled.","realtime",,"success",
+"5001",MALWAREPROTECTION_RTP_DISABLED,"Real-time protection is disabled.","realtime",,"success",
+"5004",MALWAREPROTECTION_RTP_FEATURE_CONFIGURED,"The real-time protection configuration changed.","operational",,"success",
+"5007",MALWAREPROTECTION_CONFIG_CHANGED,"The antimalware platform configuration changed.","operational",,"success",
+"5008",MALWAREPROTECTION_ENGINE_FAILURE,"The antimalware engine encountered an error and failed.","operational",,"failure",
+"5009",MALWAREPROTECTION_ANTISPYWARE_ENABLED,"Scanning for malware and other potentially unwanted software is enabled.","operational",,"success",
+"5010",MALWAREPROTECTION_ANTISPYWARE_DISABLED,"Scanning for malware and other potentially unwanted software is disabled.","operational",,"success",
+"5011",MALWAREPROTECTION_ANTIVIRUS_ENABLED,"Scanning for viruses is enabled.","operational",,"success",
+"5012",MALWAREPROTECTION_ANTIVIRUS_DISABLED,"Scanning for viruses is disabled.","operational",,"success",
 "5013",,,,,,
-"5100",,"The antimalware platform will expire soon.","operational",,"success",
-"5101",,"The antimalware platform is expired.","operational",,"failure",
->>>>>>> Stashed changes
+"5100",MALWAREPROTECTION_EXPIRATION_WARNING_STATE,"The antimalware platform will expire soon.","operational",,"success",
+"5101",MALWAREPROTECTION_DISABLED_EXPIRED_STATE,"The antimalware platform is expired.","operational",,"failure",
