@@ -6,98 +6,25 @@ pool: Native
 
 variables:
 - group: docker # Variables in Pipelines/Library
+- group: splunk-package 
 - name: APP_DIR # Used by packaging image to locate apps
   value: $(Pipeline.Workspace)/s/apps
 - name: PKG_DIR # Used by packaging image to store results
   value: $(Build.ArtifactStagingDirectory)/package
-- name: feed # Used for uploading artifacts to azure
-  value: 'bdf79b24-157f-463f-960f-825f04ff0f9c/b992132d-b93a-4ad6-a5e2-cca3afd731a2'
-- name: appname-feed # Azure artifacts only accepts lower-case # TODO: find workaround
-  value: 'ta-nextpart-defender'
-- name: major # Package versioning stuff ...
-  value: 0
-- name: minor
-  value: 3
 
 trigger:
   branches:
-    include: [ "*" ]
+    include: ["*"]
+
+resources:
+  repositories:
+    - repository: templates
+      type: git
+      name: Splunksters/Pipelines
 
 stages:
-# Determine version number for dynamic semantic versioning of package
-- stage:
-  displayName: Build_Master_Version_Number
-  condition: eq(variables['Build.SourceBranch'], 'refs/heads/master')
-  jobs:
-  - job: Build_Master_Version_Number
-    variables:
-      patch: $[counter(variables['minor'], 0)]
-    steps:
-      - bash: |
-          echo "##vso[build.updatebuildnumber]$(major).$(minor).$(patch)"
-        name: SetMasterBuildName
-- stage:
-  displayName: Build_Branch_Version_Number
-  condition: ne(variables['Build.SourceBranch'], 'refs/heads/master')
-  jobs:
-  - job: Build_Branch_Version_Number
-    variables:
-      prpatch: $[counter(variables['system.pullrequest.pullrequestid'], 0)]
-      brpatch: $[counter(variables['build.sourcebranchname'], 0)]
-    steps:
-      - bash: |
-          echo "##vso[build.updatebuildnumber]$(major).$(minor).$(prpatch)-PullRequest"
-        condition: eq(variables['Build.Reason'], 'PullRequest')
-        name: SetPRBuildName
-      - bash: |
-          echo "##vso[build.updatebuildnumber]$(major).$(minor).$(brpatch)-$(Build.SourceBranchName)"
-        condition: ne(variables['Build.Reason'], 'PullRequest')
-        name: SetBranchBuildName
-# As we have the version we can now prepare, test, package and then upload the app
-- stage: Build
-  condition: always()
-  displayName: Build_Steps
-  jobs:
-
-  - job: Packing
-    container: # Using a dedicated service image to take over jobs
-      image: $(azureContainerRegistry)/splunk/package:latest
-      endpoint: nextpartdev
-    steps:
-      - script: |
-          sudo mkdir -p $(readlink -f "$(PKG_DIR)")
-          sudo mkdir -p $(PKG_DIR)
-          sudo mkdir -p $(PKG_DIR)/$(Build.Repository.Name)
-          sudo chown -R $(whoami). $(PKG_DIR)
-        displayName: 'Preparing directories applications and packages.'
-        workingDirectory: $(Build.SourcesDirectory)
-      - checkout: self
-        path: s/apps/$(Build.Repository.Name)
-        displayName: 'Checkout repository to applications path.'
-      - script: |
-          version=$(Build.BuildNumber)
-          version="${version%%-*}"
-          sed -i "s/version = 0.0.0/version = ${version}/g" default/app.conf
-          sed -i "s/X.X.X/${version}/g" README.md
-          sed -i "s/\"version\": \"0.0.0\"/\"version\": \"${version}\"/g" app.manifest
-        workingDirectory: $(APP_DIR)/$(Build.Repository.Name)
-        displayName: 'Update package version to current build number.'
-      - script: |
-          package
-        displayName: 'Validate metadata, run appinspect tests and package source.'
-      - task: PublishTestResults@2
-        condition: succeededOrFailed()
-        inputs:
-          testResultsFiles: '**/*_appinspect.xml'
-          testRunTitle: 'Test results for package $(Build.Repository.Name) in version $(Build.BuildNumber).'
-          searchFolder: $(PKG_DIR)
-      - task: UniversalPackages@0
-        inputs:
-          command: 'publish'
-          publishDirectory: $(PKG_DIR)/$(Build.Repository.Name)
-          feedsToUsePublish: 'internal'
-          vstsFeedPublish: $(feed)
-          vstsFeedPackagePublish: $(appname-feed)
-          versionOption: 'custom'
-          versionPublish: $(Build.BuildNumber)
-        displayName: 'Publish to Feed Artifacts'
+  - stage: PackageValidation
+    pool: Native 
+    jobs:
+      # 
+      - template: splunk_app.azure-pipelines.yml@templates
