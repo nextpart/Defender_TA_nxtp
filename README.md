@@ -49,7 +49,7 @@ blacklist = 1001, 1150, 2011, 2000, 2001, 2002, 2010
 
 #### Update History
 
-* ``0.3.X`` October 05, 2020: 
+* ``0.3.X`` October 05, 2020:
     Detection results will be extracted with multiple fields if more details are provided and the source has been adapted for general use outside the dev environment and should work well for general usage.
 
 * ``0.2.X`` August 25, 2020:
