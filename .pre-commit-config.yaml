@@ -3,20 +3,21 @@
 
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v2.3.0
+    rev: v4.0.1
     hooks:
-      - id: check-executables-have-shebangs # Ensures that (non-binary) executable files have a shebang.
+      - id: check-ast # Simply check whether the files parse as valid python.
+      - id: check-case-conflict # Check for files that would conflict in case-insensitive filesystems
+      - id: check-docstring-first # Checks a common error of defining a docstring after code.
       - id: check-merge-conflict # Check for files that contain merge conflict strings.
-      - id: check-toml # This hook checks toml files for parseable syntax.
-      - id: check-xml # This hook checks xml files for parseable syntax.
-      - id: check-yaml # This hook checks yaml files for parseable syntax.
-      - id: detect-private-key # Detects the presence of private keys
-      - id: end-of-file-fixer # Ensures that a file is either empty, or ends with one newline.
+      - id: debug-statements # Check for debugger imports and py37+ `breakpoint()` calls.
+      - id: fix-encoding-pragma # Add "# -*- coding: utf-8 -*-"" to the top of python files
       - id: trailing-whitespace # This hook trims trailing whitespace.
+      - id: end-of-file-fixer # Ensures that a file is either empty, or ends with one newline.
+      - id: check-yaml # This hook checks yaml files for parseable syntax.
+      - id: check-toml # This hook checks toml files for parseable syntax.
 
-  - repo: https://github.com/Lucas-C/pre-commit-hooks-java
-    rev: 1.3.8
+  - repo: https://github.com/pre-commit/mirrors-prettier
+    rev: v2.3.2
     hooks:
-    -   id: validate-html # HTML syntax validator using W3C v.Nu checker, with support for handlebars/jinja2 templates
-        args: [--remove-mustaches, "--ignore=Expected \"<!DOCTYPE html>\""]
-        # files: ^src/main/html/
+      - id: prettier
+        args: [--prose-wrap=always, --print-width=88]

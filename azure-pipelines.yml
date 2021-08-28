@@ -5,12 +5,12 @@ name: $(Date:yyyyMMdd)$(Rev:.r)
 pool: Native
 
 variables:
-- group: docker # Variables in Pipelines/Library
-- group: splunk-package
-- name: APP_DIR # Used by packaging image to locate apps
-  value: $(Pipeline.Workspace)/s/apps
-- name: PKG_DIR # Used by packaging image to store results
-  value: $(Build.ArtifactStagingDirectory)/package
+  - group: docker # Variables in Pipelines/Library
+  - group: splunk-package
+  - name: APP_DIR # Used by packaging image to locate apps
+    value: $(Pipeline.Workspace)/s/apps
+  - name: PKG_DIR # Used by packaging image to store results
+    value: $(Build.ArtifactStagingDirectory)/package
 
 trigger:
   branches:
