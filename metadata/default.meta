@@ -1,8 +1,4 @@
 
 []
-access = read : [ admin, can_delete, power, user ], write : [ admin ]
+access = read : [ user ], write : [ admin, sc_admin ]
 export = system
-
-[views]
-access = read : [ admin, can_delete, power, user ], write : [ admin ]
-export = none

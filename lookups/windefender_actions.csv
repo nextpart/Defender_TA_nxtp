@@ -1,4 +1,4 @@
-id,Action,action
+Action_ID,Action_Name,action
 1,Clean,deleted
 2,Quarantine,blocked
 3,Remove,deleted

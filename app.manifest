@@ -4,7 +4,7 @@
     "title": "Microsoft Defender Technical Add-On",
     "id": {
       "group": null,
-      "name": "TA-nextpart-defender",
+      "name": "Defender_TA_nxtp",
       "version": "0.0.0"
     },
     "author": [
@@ -34,23 +34,31 @@
     },
     "releaseNotes": {
       "name": null,
-      "text": null,
+      "text": "./README.md",
       "uri": null
     }
   },
   "dependencies": {
     "Splunk_TA_windows": {
-      "version": ">=7.0.0"
+      "version": ">=7.0.0",
+      "package": null,
+      "optional": false,
+      "targetOS": [
+        "*"
+      ]
     }
   },
   "tasks": [],
-  "inputGroups": {
-  },
-  "incompatibleApps": {
-  },
+  "inputGroups": {},
+  "incompatibleApps": {},
   "platformRequirements": {
     "splunk": {
       "Enterprise": "*"
     }
-  }
+  },
+  "supportedDeployments": [
+    "_standalone",
+    "_distributed"
+  ],
+  "targetWorkloads": null
 }

@@ -1,0 +1,16 @@
+Category_ID,Category_Name,threat_category
+50,Ransomware,ransomware
+46,Suspicious Behavior,suspicious_behaviour
+42,Virus,virus
+34,Tool,tool
+30,Exploit,exploit
+27,Potentially Unwanted Software,PUA
+22,Trojan Notifier,trojan_notifier
+13,Browser Modifier,browser_modifier
+9,Email Flooder,email_flooder
+8,Trojan,trojan
+6,Backdoor,backdoor
+5,Worm,worm
+4,Trojan Downloader,dropper
+3,Password Stealer,password_stealer
+0,Unknown,unknown

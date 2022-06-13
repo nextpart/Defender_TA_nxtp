@@ -1,7 +1,7 @@
 ## Technical Add-On for Windows Defender
 
-[![Build Status](https://dev.azure.com/NEXTPART/Splunksters/_apis/build/status/TA-nextpart-defender?branchName=master)](https://dev.azure.com/NEXTPART/Splunksters/_build/latest?definitionId=55&branchName=master)
-[![image](https://img.shields.io/badge/Maintained%20in-Azure%20DevOps-1f425f.svg?logo=Azure%20DevOps)](https://dev.azure.com/NEXTPART/Splunksters)
+[![Build Status](https://dev.azure.com/NEXTPART/Splunking/_apis/build/status/Defender%20TA?repoName=Defender_TA_nxtp&branchName=main)](https://dev.azure.com/NEXTPART/Splunking/_build/latest?definitionId=169&repoName=Defender_TA_nxtp&branchName=main)
+[![image](https://img.shields.io/badge/Maintained%20in-Azure%20DevOps-1f425f.svg?logo=Azure%20DevOps)](https://dev.azure.com/NEXTPART/Splunking)
 [![image](https://img.shields.io/badge/Contact-NEXTPART-1abc9c.svg)](mailto:info@nextpart.io)
 
 This extension for [Splunk®](https://www.splunk.com/) is a rewrite of the Add-on already
@@ -36,13 +36,13 @@ add-on you can also use this one to extract more information and present it acco
 Remove the app using splunk plugin tool
 
 ```bash
-$SPLUNK_HOME/bin/splunk remove app TA-nextpart-defender
+$SPLUNK_HOME/bin/splunk remove app Defender_TA_nxtp
 ```
 
 ###### Install the app
 
 ```bash
-$SPLUNK_HOME/bin/splunk install app TA-nextpart-defender_<version>.tgz
+$SPLUNK_HOME/bin/splunk install app Defender_TA_nxtp_<version>.tgz
 ```
 
 ###### Forwarding Data
