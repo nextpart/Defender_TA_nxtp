@@ -1,4 +1,4 @@
-## Technical Add-On for Windows Defender
+## Windows Defender - Add-On
 
 [![Build Status](https://dev.azure.com/NEXTPART/Splunking/_apis/build/status/Defender%20TA?repoName=Defender_TA_nxtp&branchName=main)](https://dev.azure.com/NEXTPART/Splunking/_build/latest?definitionId=169&repoName=Defender_TA_nxtp&branchName=main)
 [![image](https://img.shields.io/badge/Maintained%20in-Azure%20DevOps-1f425f.svg?logo=Azure%20DevOps)](https://dev.azure.com/NEXTPART/Splunking)
