@@ -1,4 +1,10 @@
 <nav>
-    <view name="search" default='true' />
-    <view name="datasets" />
+
+  <view name="search" />
+  
+  <!-- LINK FOR SUPPORT REQUEST MAIL -->
+  <a href="mailto:info@nextpart.io?subject=Splunk | NEXTPART customer support request">Support &#128231;</a>
+
+  <a href="/app/Analytics_App_nxtp">ANALYTICS</a>
+
 </nav>
