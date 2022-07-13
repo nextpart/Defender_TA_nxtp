@@ -1,5 +1,5 @@
 {
-  "schemaVersion": "1.0.0",
+  "schemaVersion": "2.0.0",
   "info": {
     "title": "Microsoft Defender Technical Add-On",
     "id": {
@@ -38,24 +38,11 @@
       "uri": null
     }
   },
-  "dependencies": {
-    "Splunk_TA_windows": {
-      "version": ">=7.0.0",
-      "package": null,
-      "optional": false,
-      "targetOS": [
-        "*"
-      ]
-    }
-  },
-  "tasks": [],
-  "inputGroups": {},
-  "incompatibleApps": {},
-  "platformRequirements": {
-    "splunk": {
-      "Enterprise": "*"
-    }
-  },
+  "dependencies": null,
+  "tasks": null,
+  "inputGroups": null,
+  "incompatibleApps": null,
+  "platformRequirements": null,
   "supportedDeployments": [
     "_standalone",
     "_distributed"
