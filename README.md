@@ -21,7 +21,7 @@ You are heroes :clap:
 #### Using this Application
 
 * Source: `XmlWinEventLog` 
-* Sourcetype: `XmlWinEventLog:Microsoft-Windows-Windows Defender/Operational`
+* Sourcetype: `WinEventLog:Microsoft-Windows-Windows Defender/Operational`
 
 This add-on is intended as a complement to the
 [Splunk Add-on for Microsoft Windows](https://splunkbase.splunk.com/app/742/), which also manages
